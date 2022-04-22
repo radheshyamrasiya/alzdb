@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta charset="utf-8">
+    <title>Only Links</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;900&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="createtile.css">
+    <link rel="stylesheet" href="tile.css">
+
+    <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+
+    <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script>
+
+        function homePage() {
+            window.open("index.html", "_self");
+            console.log("Submitted Data");
+        }
+    </script>
+
+</head>
+
+<body>
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <div class="gohomeback" id="homenotloggedin">
+        <button class="gohome" onclick="homePage()">&#8592 GO BACK</button>
+    </div>
+    <div class="container ">
+        <div class="row ">
+            <div class="blank"></div>
+
+            <!-- <div class="twelve columns">
+                <img class="mainlogo" src="assets/logo-w.png" alt="">
+            </div> -->
+
+                </div>
+        <div class="row">
+            <div class="one columns burger " id="cardspacer">&nbsp</div>
+            
+            <div class="seven columns creatorBox" style="display: block;">
+            <div class=" creatorBoxHeading">Create Tiles.</div>
+            <div class="createTileForm">
+                <input type="text" id="titlebox" class="input" placeholder="Give a title to your tile.">
+                <input type="text" id="l1box" class="inputLinks linl_name" placeholder="Link Name">
+                <input type="text" id="l1boxlink" class="inputLinks extraa linl_link" placeholder="URL #1">
+    
+                <input type="text" id="l2box" class="inputLinks linl_name" placeholder="Link Name">
+                <input type="text" id="l2boxlink" class="inputLinks extraa  linl_link" placeholder="URL #2">
+    
+                <input type="text" id="l3box" class="inputLinks linl_name" placeholder="Link Name">
+                <input type="text" id="l3boxlink" class="inputLinks extraa  linl_link" placeholder="URL #3">
+    
+                <input type="text" id="l4box" class="inputLinks linl_name" placeholder="Link Name">
+                <input type="text" id="l4boxlink" class="inputLinks extraa  linl_link" placeholder="URL #4">
+    
+                <input type="text" id="l5box" class="inputLinks linl_name" placeholder="Link Name">
+                <input type="text" id="l5boxlink" class="inputLinks extraa  linl_link" placeholder="URL #5">
+
+                <button type="text" class="submit" id="createTile">CREATE TILE</button>
+            </div>
+        </div>
+
+            <div class="three columns tile card previewBox" id="cardtemplate" style="display: block;">
+                <div class="tileheader " >
+                  <div class="userphotobox">
+                    <img class="userphoto" src="assets/modidp.jpeg" alt="">
+                    <div class="blank"></div>
+                    <h6>creator: <p> <a href="" class="creatorname">d_d.here</a></p></h6>
+                  <br>
+                  <h6>tile<p class="tilehash">#LMFAO</p></h6>
+                  </div>
+                </div>
+                <div class="tilecontent">
+                  <br>
+                  <h2 class="tiletitle">Best SEO tools.</h2>
+                  <ol>
+                <a href="https://google.co.in/" target="_blank" class="tilelinklink1"> <li class="tilelink1">Growth Bar</li> </a>
+                  <a href="https://google.co.in/" target="_blank" class="tilelinklink2"> <li class="tilelink2">SEMRush</li> </a>
+                  <a href="https://google.co.in/" target="_blank" class="tilelinklink3"> <li class="tilelink3">Growth Bar</li> </a>
+                  <a href="https://google.co.in/" target="_blank" class="tilelinklink4"> <li class="tilelink4">Growth Bar</li> </a>
+                  <a href="https://google.co.in/" target="_blank" class="tilelinklink5"> <li class="tilelink5">Growth Bar</li> </a>
+                </ol>
+                <div class="contentendspacer"></div>
+            </div>
+            
+            
+            
+            
+            
+              <button type="text" class="roundedBtn" id="generatePreview">GENERATE PREVIEW</button></div>
+
+    </div>
+</div>
+
+<!-- ____________________________________________createtile database_______________________________________________________________________________ -->
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
+        <script src="linkScript.js"></script>
+        <script type="module">
+            // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+            import { getDatabase, get, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+            import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+            // TODO: Add SDKs for Firebase products that you want to use
+            // https://firebase.google.com/docs/web/setup#available-libraries
+
+            // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+            const firebaseConfig = {
+                apiKey: "AIzaSyDs6jr2h4sGoFGCIqecyPnUviM8tZR_34g",
+                authDomain: "onlylinktest.firebaseapp.com",
+                databaseURL: "https://onlylinktest-default-rtdb.asia-southeast1.firebasedatabase.app",
+                projectId: "onlylinktest",
+                storageBucket: "onlylinktest.appspot.com",
+                messagingSenderId: "309211315697",
+                appId: "1:309211315697:web:e968d4c3184f5c75481850",
+                measurementId: "G-2SL7ZMRP9M"
+            };
+            // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+            const db = getDatabase(app);
+            const auth = getAuth();
+         
+
+                // ______________________Instert Process_________________
+
+                var createTileBtn = document.getElementById('createTile');
+
+                
+                
+                var tileCount = 0;
+                function updateOnDatabase() {
+                  
+                  tempCardCount++;
+                    
+                    var tileh = document.getElementById('titlebox').value
+                    var linkname1 = document.getElementById('l1box').value
+                    var linkname2 = document.getElementById('l2box').value
+                    var linkname3 = document.getElementById('l3box').value
+                    var linkname4 = document.getElementById('l4box').value
+                    var linkname5 = document.getElementById('l5box').value
+                    var linklink1 = document.getElementById('l1boxlink').value
+                    var linklink2 = document.getElementById('l2boxlink').value
+                    var linklink3 = document.getElementById('l3boxlink').value
+                    var linklink4 = document.getElementById('l4boxlink').value
+                    var linklink5 = document.getElementById('l5boxlink').value
+                    
+                    update(ref(db, 'tiles/' + tempCardCount), {
+                        title: tileh,
+                        link1: linkname1,
+                        link2: linkname2,
+                        link3: linkname3,
+                        link4: linkname4,
+                        link5: linkname5,
+                        link1link: linklink1,
+                        link2link: linklink2,
+                        link3link: linklink3,
+                        link4link: linklink4,
+                        link5link: linklink5
+                    }); 
+  
+                }
+
+                createTileBtn.addEventListener("click",updateOnDatabase);
+
+        </script>
+
+
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,171 @@
+🔥 5ireChain FAQ
+(Updated as of November 2021)
+
+Q: What is the Goal🌏 of 5ire?
+‣ Embed the for-benefit paradigm at the heart of blockchain
+‣ Highly incentivize practices that align with the UN SDGs
+‣ Facilitate the transition from 4IR to 5IR.
+‣ Accelerate the implementation of the UN 2030 Agenda for Sustainable Development.
+
+Q: Why 5ire🤷‍♂️?
+‣ Ever-rising climatic conditions and environmental damage.
+‣ Blockchains & Cryptocurrency not sustainable.
+‣ Businesses not acting as a force for good.
+‣ Blockchain innovation has focused on financial applications.
+‣ Profits & Purpose don’t co-exist.
+
+Q: How does 5ire satisfy this need?
+‣ First ecosystem to tackle blockchain sustainability at its core. 
+‣ Enabling teams to build solutions for a sustainable & decentralized future.
+‣ Aims to become an ecosystem that focuses on positive impact.
+‣ Invites individuals and projects on top of 5ireChain to adopt this vision. 
+
+Q: What is the future market for 5ire and blockchain?
+‣ The market size of Blockchain - $60 Billion USD by 2024
+‣ The market size of UN SDGs - $2 Trillion USD by 2030
+
+Q: What makes 5ire better than other layer1 projects🥊?
+With regards to its open source or corporate competitors, 5ireChain is superior in the following ways :-
+‣ Stronger security guarantee
+‣ Sustainability by design
+‣ First movers in the market
+‣ More Decentralised
+‣ Better Governance & Democracy
+‣ Easier Upgradeability
+‣ Faster Transaction Speed
+5ire envisions a future where the ecosystem is restructured as sovereign heterogeneous shards of a global network of connected chains --achieving true horizontal and vertical scalability that single chains can never achieve. It assures openness, unity of purpose, and inclusivity. Thus, shaping the ethics of business and collaborations toward sustainability while providing a cross-chain environment, plus advanced governance & rewarding mechanisms
+
+Q: What are United Nations' Sustainable Development Goals?
+‣ The Sustainable Development Goals (SDGs), also known as the Global Goals, were adopted by the United Nations in 2015 as a universal call to action to end poverty, protect the planet, and ensure that by 2030 all people enjoy peace and prosperity.
+‣ The 17 SDGs are integrated—they recognize that action in one area will affect outcomes in others, and that development must balance social, economic and environmental sustainability.
+
+Q: How will 5ire help in supporting UN SDGs?
+‣ 5ire aims to become a blockchain ecosystem for the 5th industrial revolution, where self-sovereign decentralized organizations are empowered & incentivized toward accelerating the implementation of the United Nations 2030 Agenda for Sustainable Development.
+‣ 5ireChain's primary proposition is its unique consensus mechanism - "Proof of 5ire”, which includes proof of benefit, nominated proof of stake and proof of donation. It integrates sustainability at the core of blockchain and empowers nodes for sustainable practices, by incentivising them economically.
+‣ In the real world, if there are two individuals, Josh & Bob. Now if Josh has more sustainable practices than Bob, then he would end up making more rewards!
+‣ This is 5ireChain's way of ensuring sustainable practices are incentivised and help accelerate UN Agenda for Sustainable Development.
+
+Q: What is the Roadmap being followed by 5ire?
+Q4 - 2021
+‣ Model and whitepaper research.
+‣ Partnerships with various protocols.
+‣ Token economics & documentation.
+‣ Proof of concept code. 
+‣ Public website launch, IDO, infrastructure cluster.
+‣ Proof of 5ire reward distribution mechanism Prototype Establishment.
+‣ TestNet Launch for selected partners.
+
+
+Q1 - 2022
+‣ Smart Contract Functionality (WASM Rust-based Ink! & EVM Solidity).
+‣ Development of Oracle Services for Custom sustainability & SDG-related data feeds.
+‣ MainNet launch in Proof of Authority mode.
+‣ 5ire Portal UI for accounts creation, balance transfers, staking, governance and chain status.
+‣ 5ire Wallet.
+‣ 5ire Apps Console.
+‣ MainNet launch in Proof of 5ire mode.
+‣ SDGs Oracles data feeds.
+‣ 5ire Decentralized & Permissionless Naming Services.
+‣ Self-sovereign Decentralized Identity modules.
+
+Q: Who is behind 5ire?
+Founded by Global Impact Champions & Blockchain Pioneers
+
+‣ Co-founders
+1. Pratik Gauri - CEO
+2. Prateek Dwivedi - CMO 
+3. Vilma Mattila - CBO
+
+‣ Advisors 
+1. Charlie Hu, Head of Polygon, China
+2. Marcello Mari  , Singularity DAO - CEO
+3. Antoni Zolciak, Aleph Zero - Cofounder & CMO
+4. Jan Strandberg, Yield App - Founder & Chief Growth Officer
+5. Joe Vezzani, Lunarcrush - CEO, Ex-Morgan Stanley
+6. Mario Alberto, Casiraghi, Xfinite Global - CFO, Ex-ING, Bank of America
+7. Aaron Choi, Kava Labs - VP Global Business
+8. Matthew Niemerg,   Aleph Zero - President
+9. Samson Lee, Ethereum China Community - Founder
+10. Benjamin Chodroff, HSBC, China - Head of Cas Equities Technology, China
+11. Alvaro Fernandez,   Nsure Network - Head of Strategy
+12. Thomas Sattes, Kellog-HKUST EMBA - Vice President Asia Pacific
+13. Daniel Foa, Board Member - Golden Midtech
+14. Dimitar Dinev, IPOR Labs - Chief Strategy Officer
+15. Dana Farbo, AVRILAR - CEO
+
+Q: What are the major milestones🏆?
+1. 5ire ecosystem now has its own blockchain, its own wallet, its own exchange which we acquired, its own NFT / metaverse marketplace, and its own security wing. 
+Please check our ecosystem - 
+https://drive.google.com/file/d/1mpySe0Vyu2I5LToSyDcu6kLa7M4eY7Ha/view?usp=sharing
+
+2. Since the ecosystem wants to compete with ETH and Solana and other Layer 1s, we are securing $21.5M in our private sale. We have completed $14M in 15 days. 
+
+3. Tokenomics here - 
+https://drive.google.com/file/d/1gv7MCoIRJAitO2DOhbbLA6JZXZ2IM-OU/view?usp=sharing
+
+4. Please see our investor dockey. We now have crypto OGs + tier 1 funds + Fortune 500 companies like Huawei supporting us. 
+https://docsend.com/view/ia2dkdd6utf9cyuf
+
+5. Ramped up our tech team to 40+ fulltime devs with help of Huawei
+
+Q: What are the latest partnerships🤝 supporting 5ire?
+‣ Marshland capital
+‣ Alphabit (Techstars crypto Fund) 
+‣ Launchpool 
+‣ Advisor to Private Office of HH SJM AlMaktoum
+‣ Yield.app 
+‣ Fomo lab
+‣ Sky ventures 
+‣ Vcommission Global affiliate marketing network
+‣ Coach K
+‣ Millionaire mentor
+‣ Magnus Capital
+‣ MoonBoots capital
+‣ Oracle Investment Group
+
+🧑‍💻 Technical FAQ
+
+Q: Does 5ire have its own blochain?
+‣ Yes 5ire has its own ecosystem consisting of Blockchain, Wallet, Exchange, Metaverse, Security, Capital etc.
+
+Q: What can be built🛠 on 5ire? 
+‣ Governance & DAO frameworks for individuals, investment funds & companies.
+‣ Custom Blockchain, Smart contracts, IoT, AR/VR, AI solutions for UN SDGs & impact.
+
+Q: On which chain will the token be launched?
+‣ Initially the token will be launched as an ERC-20 token, then thereafter we will move to 5ireChain through bridging.
+
+Q: On what technologies is 5ire built?
+‣ Rust Programming Language
+‣ Web-Assembly
+‣ Post-Quantum cryptography
+‣ Heterogeneous network sharding
+‣ Intel SGX
+‣ Liquid democracy and governance mechanisms
+‣ Peer-to-Peer (P2P) Networking
+‣ Remote Procedure Call (RPC)
+‣ Interplanetary File System (IPFS)
+
+Q: What technologies and protocols that are being built by the team?
+‣ Consensus engine / Sustainability-driven Consensus Reward distribution mechanisms.
+‣ SDG-related Multi-agent decision-making mechanisms such as committee elections, e-voting, e-auctions, and general on-chain governance.
+‣ Blockchain runtime functionalities (SSI DIDs, Decentralized and permissionless naming protocols, Lightweight Cryptography, Layer 2 solutions, Protocol-level Oracles, TEEs, AI-based SGD Analysis and Telemetry with IoT & Sensory Technologies).
+‣ IPFS-based solutions. IPFS allows for data toa be stored across a distributed network of nodes, which has the potential to eliminate any single point of failure.
+
+Q: What is the tokenomics' structure for 5ire?
+‣ Ticker: 5ire
+‣ Token Supply: 1.5 Billion
+‣ Initial Market Cap: $1.75 Million
+
+Q: What are the advantage of holding 5ire?
+The 5IRE utility token serves as a central unit of staking and exchange. These tokens are used for governance, staking, and other network utilities.
+
+‣ Economics: 5ireChain will mint or burn tokens to fund the treasury, control the inflation rate, or reward the nodes that run the consensus protocol.
+
+‣ Staking: Tokens will be used to incentivize validators and nominators, based on the Nominated Proof-of-Stake reward distribution mechanism.
+
+‣ Slashing: Tokens also play a role in the slashing protocols designed to disincentivize attacks or adversarial behaviors.
+
+‣ Incentivized distributed data storage (IPFS): 5ire tokens are used in the incentive mechanism of nodes, as per data storage.
+
+‣ Incentivized data exchange & analytics: 5ire network provides data exchange and pricing marketplaces for data providers & consumers.
