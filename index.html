@@ -126,8 +126,13 @@
               <br/>
               <p style="font-size:16px;font-weight:600">Lackasso:-&nbsp<p class="tilelink4">.</p> </p>
               <br/>
-              <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#"class="tilelink6">Click Here</a> </p>
+              <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#" class="tilelink6">Click Here</a></p>
               <br/>
+              <p style="font-size:16px;font-weight:600">ENSEMBL:-&nbsp<a href="#" class="tilelink9">Click Here</a></p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">GO:-&nbsp<a href="#"class="tilelink7">Ontology</a>&nbsp|&nbsp<a href="#"class="tilelink8">Gene Products</a></p>
+              <br/>
+              
               <p style="font-size:16px;font-weight:600">Conclusion:-&nbsp<p class="tilelink5">..</p> </p>
               <br/>
               <div class="contentendspacer"></div>
@@ -240,13 +245,31 @@
       var cardcount = 0;
       var searchbox = document.getElementById("SearchQuery");
 
+
       var searchBtn = document.getElementById("searchButton");
       // var testbutton = document.getElementById("testbutton");
 
       ///function writing starts////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       // testbutton.addEventListener("click",generateCards);
-      searchBtn.addEventListener("click", searchData);
+      searchBtn.addEventListener("click", checkquery);
+
+      function checkquery() {
+        console.log("0000000000000000000 = "+searchbox.value);
+        var regEx = /^[a-z0-9]+$/i;
+        var temp = searchbox.value;
+        if (temp>9999){
+          searchDataPID();
+        }
+        else if(searchbox.value.match(regEx))
+        {
+          searchData();
+        }
+        if (searchbox.value.match("allData"))
+        {
+          searchDataAll();
+        }
+      }
 
       // window.onload = pageLoad;
       // function pageLoad(){
@@ -324,6 +347,9 @@
           var tilelink4 = card.getElementsByClassName("tilelink4")[0];
           var tilelink5 = card.getElementsByClassName("tilelink5")[0];
           var tilelink6 = card.getElementsByClassName("tilelink6")[0];
+          var tilelink7 = card.getElementsByClassName("tilelink7")[0];
+          var tilelink8 = card.getElementsByClassName("tilelink8")[0];
+          var tilelink9 = card.getElementsByClassName("tilelink9")[0];
           var tileid = card.getElementsByClassName("tilehash")[0];
           var gene = card.getElementsByClassName("creatorname")[0];
           var temp = "maindata/";
@@ -343,6 +369,12 @@
             var tempncbilink = "https://www.ncbi.nlm.nih.gov/gene/?term=" + tempncbiterm
             console.log(tempncbilink);
             tilelink6.href = tempncbilink;
+            var tempncbilink = "http://amigo.geneontology.org/amigo/search/ontology?q=" + tempncbiterm
+            tilelink7.href = tempncbilink;
+            var tempncbilink = "http://amigo.geneontology.org/amigo/search/bioentity?q=" + tempncbiterm
+            tilelink8.href = tempncbilink;
+            var tempncbilink = "http://asia.ensembl.org/Multi/Search/Results?q=" + tempncbiterm + ";site=ensembl"
+            tilelink9.href = tempncbilink;
           
           });
         });
@@ -373,6 +405,73 @@
               });
               // console.log("checking array :-" + i);
               if (tempArr[1] == temp) {
+                console.log("entry found at"+i);
+                searchResultArr.push(i);
+                console.log(tempArr)
+                generateCards.apply(this, tempArr);
+              }
+              tempArr.length = 0;
+            } else {
+              console.log("No data available");
+            }
+          });
+          counter = counter + 1;
+        }
+        generateCards();
+      }
+
+      function searchDataAll() {
+        console.log("ALL DATA RQEQRQR")
+        if (cardcount != 0) {
+          $("#cardholder").load(document.URL + "  #cardholder");
+        }
+        cardcount = 0;
+        var temp = searchbox.value;
+        console.log("Seaching:- " + temp);
+        console.log("Seaching data now");
+        searchResultArr = [];
+        const dbref = ref(db);
+        for (let i = 0; i < 400; i++) {
+          tempArr = [];
+          get(child(dbref, "maindata/" + i)).then((snapshot) => {
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                tempArr.push(item);
+              });
+                console.log(tempArr);
+                searchResultArr.push(i);
+                generateCards.apply(this, tempArr);
+                tempArr.length = 0;
+            } else {
+              console.log("No data available");
+            }
+          });
+        }
+        generateCards();
+      }
+
+      function searchDataPID() {
+        if (cardcount != 0) {
+          $("#cardholder").load(document.URL + "  #cardholder");
+        }
+        cardcount = 0;
+        var temp = searchbox.value;
+        console.log("Seaching:- " + temp);
+        console.log("Seaching data now");
+        searchResultArr = [];
+        const dbref = ref(db);
+        var counter = 0;
+        for (let i = 0; i < 400; i++) {
+          tempArr = [];
+          get(child(dbref, "maindata/" + i)).then((snapshot) => {
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                tempArr.push(item);
+              });
+              // console.log("checking array :-" + i);
+              if (tempArr[6] == temp) {
                 console.log("entry found at"+i);
                 searchResultArr.push(i);
                 generateCards.apply(this, tempArr);
