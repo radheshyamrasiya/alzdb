@@ -44,6 +44,19 @@
         window.open("profile.html", "_self");
       }
     </script>
+
+    <script>
+        function savecard(elt) {
+              var cardid = elt.parentNode.parentNode.parentNode.id;
+              console.log("CARD IS SAVED GG= " + cardid)
+              var card = document.getElementById(cardid);
+              var dbid = card.getElementsByClassName("tilehash")[0];
+              console.log("DB ID IS = " + dbid.innerText)
+              
+
+            }
+    </script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   </head>
   <body>
@@ -97,13 +110,16 @@
         <div
           class="three columns tile card"
           id="cardtemplate"
-          style="display: none"
+          style="display: block"
         >
           <div class="cardhaibc" id="cardhaibc">
-            <div class="tileheader">
-              <div class="userphotobox">
+            <div class="tileheader" >
+              <div class="userphotobox" >
                 <img class="userphoto" src="assets/modidp.png" alt="" />
+                
+                
                 <div class="blank"></div>
+
                 <h6>
                   gene:-&nbsp
                   <p class="creatorname">CDH10</p>
@@ -113,6 +129,9 @@
                   tileid:-&nbsp#
                   <p class="tilehash">#LMFAO</p>
                 </h6>
+              
+                <div class="blank"></div>
+                <img class="userphoto2" onclick="savecard(this)" src="assets/save.png" alt="" />
               </div>
             </div>
             <div class="tilecontent">
@@ -271,26 +290,26 @@
         }
       }
 
-      // window.onload = pageLoad;
-      // function pageLoad(){
-      //   var tlmp = document.getElementById("topleftmainpage");
-      //   onAuthStateChanged(auth, (user) => {
-      //     if (user) {
-      //       const dbRef = ref(getDatabase());
-      //       var tempusernamesearch = "users/" + user.uid
-      //       get(child(dbRef, tempusernamesearch)).then((snapshot) => {
-      //       if (snapshot.exists()) {
-      //               tlmp.innerText = snapshot.val().username
-      //               tlmp.style.display = "block";
-      //           }
-      //         });
-      //       }
-      //       else {
-      //         tlmp.innerText = "Login | SignUp"
-      //         tlmp.style.display = "block";
-      //       }
-      //   });
-      // }
+      window.onload = pageLoad;
+      function pageLoad(){
+        var tlmp = document.getElementById("topleftmainpage");
+        onAuthStateChanged(auth, (user) => {
+          if (user) {
+            const dbRef = ref(getDatabase());
+            var tempusernamesearch = "users/" + user.uid
+            get(child(dbRef, tempusernamesearch)).then((snapshot) => {
+            if (snapshot.exists()) {
+                    tlmp.innerText = snapshot.val().username
+                    tlmp.style.display = "block";
+                }
+              });
+            }
+            else {
+              tlmp.innerText = "Login | SignUp"
+              tlmp.style.display = "block";
+            }
+        });
+      }
 
       function cloneCard() {
         var template = document.getElementById("cardtemplate");
@@ -382,6 +401,9 @@
 
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+        
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
       var searchResultArr = [];
       var tempArr = [];
       function searchData() {
@@ -439,7 +461,6 @@
                 const item = childSnapshot.val();
                 tempArr.push(item);
               });
-                console.log(tempArr);
                 searchResultArr.push(i);
                 generateCards.apply(this, tempArr);
                 tempArr.length = 0;
