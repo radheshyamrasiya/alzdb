@@ -40,187 +40,14 @@
     <!-- JS
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script>
-      function profilePage() {
-        window.open("profile.html", "_self");
-      }
-    </script>
-
-    <script>
-        function savecard(elt) {
-              var cardid = elt.parentNode.parentNode.parentNode.id;
-              console.log("CARD IS SAVED GG= " + cardid)
-              var card = document.getElementById(cardid);
-              var dbid = card.getElementsByClassName("tilehash")[0];
-              console.log("DB ID IS = " + dbid.innerText)
-              
-
-            }
+      
     </script>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  </head>
-  <body>
-    <!-- Primary Page Layout
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <!-- <div >
-    <button  id="testbutton">TESTBUTTON</button>
-  </div> -->
-    <div class="homescreenlogin">
-      <button
-        class="login"
-        onclick="profilePage()"
-        id="topleftmainpage"
-        style="display: none"
-      >
-        Login | SignUp
-      </button>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="blank"></div>
-        <div class="twelve columns">
-          <img class="mainlogo" src="assets/logo-w.png" alt="" />
-        </div>
-      </div>
+    <script src="extrajs.js"></script>
 
-      <div class="row">
-        <div class="twelve columns">
-          <div class="whitesearchbar">
-            <span class="helper"></span>
-            <img src="assets/searchlogo.png" class="searchlogo" alt="" />
-            <input
-              id="SearchQuery"
-              size="12"
-              type="text"
-              placeholder="Search the web..."
-              autofocus
-            />
-            <button
-              id="searchButton"
-              class="search center login"
-              style="float: right; clear: both"
-            >
-              SEARCH
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="row" id="cardholder">
-        <div
-          class="three columns tile card"
-          id="cardtemplate"
-          style="display: block"
-        >
-          <div class="cardhaibc" id="cardhaibc">
-            <div class="tileheader" >
-              <div class="userphotobox" >
-                <img class="userphoto" src="assets/modidp.png" alt="" />
-                
-                
-                <div class="blank"></div>
-
-                <h6>
-                  gene:-&nbsp
-                  <p class="creatorname">CDH10</p>
-                </h6>
-                <br />
-                <h6>
-                  tileid:-&nbsp#
-                  <p class="tilehash">#LMFAO</p>
-                </h6>
-              
-                <div class="blank"></div>
-                <img class="userphoto2" onclick="savecard(this)" src="assets/save.png" alt="" />
-              </div>
-            </div>
-            <div class="tilecontent">
-              <br />
-              <h2 class="tiletitle" style="font-size: 20px">.</h2>
-              <p style="font-size:16px;font-weight:600">Disease Class:-&nbsp<p class="tilelink1">.</p> </p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">PID:-&nbsp<p class="tilelink2">.</p> </p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">Year:-&nbsp<p class="tilelink3">.</p> </p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">Lackasso:-&nbsp<p class="tilelink4">.</p> </p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#" class="tilelink6">Click Here</a></p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">ENSEMBL:-&nbsp<a href="#" class="tilelink9">Click Here</a></p>
-              <br/>
-              <p style="font-size:16px;font-weight:600">GO:-&nbsp<a href="#"class="tilelink7">Ontology</a>&nbsp|&nbsp<a href="#"class="tilelink8">Gene Products</a></p>
-              <br/>
-              
-              <p style="font-size:16px;font-weight:600">Conclusion:-&nbsp<p class="tilelink5">..</p> </p>
-              <br/>
-              <div class="contentendspacer"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="one columns burger" id="cardspacer" style="display: none">
-          &nbsp
-        </div>
-        <!-- 
-        <div class="three columns tile" >
-          <div class="tileheader " >
-            <div class="userphotobox">
-              <img class="userphoto" src="assets/momtadp.jpg" alt="">
-              <div class="blank"></div>
-              <h6>creator: <p><a href="">eyecantsweem</a></p></h6>
-            <br>
-            <h6>tile<p>#LMFAO</p></h6>
-            </div>
-          </div>
-          <div class="tilecontent">
-            <br>
-            <h2>Best Graphics Designing tools.</h2>
-            <ol>
-            <li>Photoshop</li>
-            <li>Canva</li>
-            <li>Illustrator</li>
-            <li>Procreate (iPads)</li>
-            <li>GIMP</li>
-          </ol>
-            <div class="contentendspacer"></div>
-        </div>
-      </div>
-
-
-        <div class="one columns">&nbsp</div>
-        
-        <div class="three columns tile" >
-          <div class="tileheader " >
-            <div class="userphotobox">
-              <img class="userphoto" src="assets/rahuldp.jpg" alt="" >
-              <div class="blank"></div>
-              <h6>creator: <p><a href="">cuteboypappu</a></p></h6>
-            <br>
-            <h6>tile<p>#LMFAO</p></h6>
-            </div>
-          </div>
-          <div class="tilecontent">
-            <br>
-            <h2>Best Video Editing tools.</h2>
-            <ol>
-            <li>Premiere Pro</li>
-            <li>DaVinci Resolve</li>
-            <li>After Effects</li>
-            <li>Final Cut Pro X (macOS)</li>
-            <li>CyberLink PowerDirector</li>
-          </ol>
-            <div class="contentendspacer"></div>
-        </div>
-      </div> -->
-      </div>
-
-      <div class="testdepth"></div>
-    </div>
-
-    <!-- End Document
-  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <script type="module">
+
       // Import the functions you need from the SDKs you need
       import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
       import {
@@ -230,6 +57,7 @@
         set,
         child,
         update,
+        push,
         remove,
       } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
       import {
@@ -268,7 +96,7 @@
       var searchBtn = document.getElementById("searchButton");
       // var testbutton = document.getElementById("testbutton");
 
-      ///function writing starts////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      ///function writing starts///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       // testbutton.addEventListener("click",generateCards);
       searchBtn.addEventListener("click", checkquery);
@@ -289,7 +117,6 @@
           searchDataAll();
         }
       }
-
       window.onload = pageLoad;
       function pageLoad(){
         var tlmp = document.getElementById("topleftmainpage");
@@ -299,7 +126,7 @@
             var tempusernamesearch = "users/" + user.uid
             get(child(dbRef, tempusernamesearch)).then((snapshot) => {
             if (snapshot.exists()) {
-                    tlmp.innerText = snapshot.val().username
+                    tlmp.innerText = snapshot.val().username;
                     tlmp.style.display = "block";
                 }
               });
@@ -341,7 +168,9 @@
       }
 
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+      function hanji(){
+        console.log("okbhai")
+      }
       function generateCards(...args) {
         console.log("generateCards function is called here");
         // 0 = conclusion
@@ -356,6 +185,7 @@
 
         var cardid;
 
+        console.log("this is search resealt array"+searchResultArr)
         searchResultArr.forEach(function (element) {
           cardid = cloneCard();
           var card = document.getElementById(cardid);
@@ -375,6 +205,7 @@
           temp = temp.concat(element);
           const dbref = ref(db);
           get(child(dbref, temp)).then((snapshot) => {
+            console.log("ret from fb")
             console.log(snapshot.val())
             tileid.innerText = snapshot.val().DB_ID;
             gene.innerText = snapshot.val().GENE;
@@ -400,8 +231,88 @@
       }
 
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+      // var continueToSaveBtn = document.getElementById("contSave")
+      // continueToSaveBtn.addEventListener('click', savealldata);
+      var favyes = document.getElementById("favyes");
+      
+      favyes.addEventListener('click', savealldata);
+      function savealldata() {
+        var tempfavsetter = [];
+        console.log("continue to save called")
+
+        var sessioncounter = sessionStorage.getItem("sessioncounter");
+        console.log("session counter value ret inside module is = "+sessioncounter);
+        var temp = parseInt(sessioncounter)+1;
+        console.log("temp is-"+temp)
+        for (let i=0 ; i<temp; i++){
+            console.log("i="+i)
+            console.log(sessionStorage.getItem(i));
+            var tempcurrentfavid = sessionStorage.getItem(i);
+            var tempcurrentuser = auth.currentUser;
+            console.log(tempcurrentuser.uid);
+            var tempcurrentuserid = tempcurrentuser.uid
+            var tempcurrentuserpath = "userfavs/" + tempcurrentuserid;
+            const userfavsRef = ref(db, tempcurrentuserpath);
+            const newfavRef = push(userfavsRef);
+            set(newfavRef, {
+                0: tempcurrentfavid
+            });
+         
+            //  write a function to get all childs and add at last position
+          //   const dbref = ref(db);
+          //   get(child(dbref, "userfavs/" + tempcurrentuserid)).then((snapshot) => {
+          //   if (snapshot.exists()) {
+          //     snapshot.child(sessioncounter).set(sessionStorage.getItem(i));
+          //     // snapshot.forEach(function (childSnapshot) {
+          //     //   console.log("child=="+childSnapshot.val());
+          //     // });
+          //   } else {
+          //     console.log("No data available");
+          //   }
+          // });
+          
+
+            // set(ref(db, 'userfavs/' + tempcurrentuserid), {
+            //   fav: sessionStorage.getItem(i)
+            // });
 
         
+        } 
+
+      }
+
+      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+      var okok = document.getElementById("okok")
+      okok.addEventListener('click', searchFavs);
+      var favArr=[0,1,2,3,4,5,6,7,8,9];
+      console.log(favArr);
+      function searchFavs() {
+        var counter = 0;
+        favArr = [];
+        const dbref = ref(db);
+        var tempcurrentuser = auth.currentUser;
+        var tempcurrentuserid = tempcurrentuser.uid;
+        console.log(tempcurrentuserid);
+        //for (let i = 0; i < 100; i++) {
+          get(child(dbref, "userfavs/" + tempcurrentuserid)).then((snapshot) => {
+            if (snapshot.exists()) {
+              
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                favArr[counter]=item;
+                counter = counter + 1;
+              });
+            } else {
+              console.log("No data available");
+            }
+          });
+          console.log(favArr);
+        //}
+      } 
+
+
       /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
       var searchResultArr = [];
@@ -431,19 +342,18 @@
                 searchResultArr.push(i);
                 console.log(tempArr)
                 generateCards.apply(this, tempArr);
+                searchResultArr.pop();
               }
               tempArr.length = 0;
             } else {
               console.log("No data available");
             }
-          });
+          })        ;
           counter = counter + 1;
         }
-        generateCards();
-      }
+      } 
 
       function searchDataAll() {
-        console.log("ALL DATA RQEQRQR")
         if (cardcount != 0) {
           $("#cardholder").load(document.URL + "  #cardholder");
         }
@@ -453,6 +363,7 @@
         console.log("Seaching data now");
         searchResultArr = [];
         const dbref = ref(db);
+        var counter = 0;
         for (let i = 0; i < 400; i++) {
           tempArr = [];
           get(child(dbref, "maindata/" + i)).then((snapshot) => {
@@ -461,15 +372,21 @@
                 const item = childSnapshot.val();
                 tempArr.push(item);
               });
+              // console.log("checking array :-" + i);
+              if (true) {
+                console.log("entry found at"+i);
                 searchResultArr.push(i);
+                console.log(tempArr)
                 generateCards.apply(this, tempArr);
-                tempArr.length = 0;
+                searchResultArr.pop();
+              }
+              tempArr.length = 0;
             } else {
               console.log("No data available");
             }
           });
+          counter = counter + 1;
         }
-        generateCards();
       }
 
       function searchDataPID() {
@@ -555,6 +472,274 @@
       // var searchbtn1 = document.getElementById("searchButton")
       // searchbtn1.addEventListener('click', showtile);
     </script>
+
+
+  </head>
+  <body>
+    <button id="okok">TEST</button>
+    <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <!-- <div >
+    <button  id="testbutton">TESTBUTTON</button>
+  </div> -->
+    <div class="homescreenlogin">
+      <button
+        class="login"
+        onclick="profilePage()"
+        id="topleftmainpage"
+        style="display: none"
+      >
+        Login | SignUp
+      </button>
+    </div>
+
+    <!-- <div class="contsavearea">
+      <button
+        class="contSave"
+        id="contSave"
+        style="display: block"
+      >
+        Continue To Save
+      </button>
+    </div> -->
+
+    
+    <div class="container">
+      <div class="row">
+        <div class="blank"></div>
+        <div class="twelve columns">
+          <img class="mainlogo" src="assets/logo-w.png" alt="" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="twelve columns">
+          <div class="whitesearchbar">
+            <span class="helper"></span>
+            <img src="assets/searchlogo.png" class="searchlogo" alt="" />
+            <input
+              id="SearchQuery"
+              size="12"
+              type="text"
+              placeholder="Search the web..."
+              autofocus
+            />
+            <button
+              id="searchButton"
+              class="search center login"
+              style="float: right; clear: both"
+            >
+              SEARCH
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row" id="cardholder">
+
+        <div
+          class="three columns tile card"
+          id="cardtemplate"
+          style="display: none"
+        >
+          <div class="cardhaibc" id="cardhaibc">
+            <div class="tileheader" >
+              <div class="userphotobox" >
+                <img class="userphoto" src="assets/modidp.png" alt="" />
+                
+                
+                <div class="blank"></div>
+
+                <h6>
+                  gene:-&nbsp
+                  <p class="creatorname">CDH10</p>
+                </h6>
+                <br />
+                <h6>
+                  tileid:-&nbsp#
+                  <p class="tilehash">#dbid1</p>
+                </h6>
+              
+                <div class="blank"></div>
+                <img class="userphoto2" onclick="savecard(this)" src="assets/save.png" alt="" />
+              </div>
+            </div>
+            <div class="tilecontent">
+              <br />
+              <h2 class="tiletitle" style="font-size: 20px">.</h2>
+              <p style="font-size:16px;font-weight:600">Disease Class:-&nbsp<p class="tilelink1">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">PID:-&nbsp<p class="tilelink2">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">Year:-&nbsp<p class="tilelink3">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">Lackasso:-&nbsp<p class="tilelink4">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#" class="tilelink6">Click Here</a></p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">ENSEMBL:-&nbsp<a href="#" class="tilelink9">Click Here</a></p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">GO:-&nbsp<a href="#"class="tilelink7">Ontology</a>&nbsp|&nbsp<a href="#"class="tilelink8">Gene Products</a></p>
+              <br/>
+              
+              <p style="font-size:16px;font-weight:600">Conclusion:-&nbsp<p class="tilelink5">..</p> </p>
+              <br/>
+              <div class="contentendspacer"></div>
+            </div>
+          </div>
+
+          
+        </div>
+
+
+        <div
+        class="three columns tile card customAlert"
+        id="favalert"
+        
+      >
+        <div class="cardhaibc">
+          <div class="tileheader" >
+            <div class="userphotobox" >
+              <img class="userphoto" src="assets/modidp.png" alt="" />
+              
+              
+              <div class="blank"></div>
+
+              <h2 style="font-weight:500">
+                ALERT
+              </h2>
+
+            </div>
+            
+          </div>
+          <div class="tilecontent">
+            <br />
+            <h6>DO YOU WANT TO SAVE THIS CARD IN YOUR FAVOURITES?</h6>
+            <button id="favyes">YES</button>
+            <button id="favno">NO</button>
+          </div>
+          
+
+        </div>
+
+
+        <div class="one columns burger" id="cardspacer" style="display: none">
+          &nbsp
+        </div>
+
+        <div
+        class="three columns tile card"
+        id="cardtemplate"
+        style="display: none"
+      >
+        <div class="cardhaibc" id="cardhaibc2">
+          <div class="tileheader" >
+            <div class="userphotobox" >
+              <img class="userphoto" src="assets/modidp.png" alt="" />
+              
+              
+              <div class="blank"></div>
+
+              <h6>
+                gene:-&nbsp
+                <p class="creatorname">CDH10</p>
+              </h6>
+              <br />
+              <h6>
+                tileid:-&nbsp#
+                <p class="tilehash">#dbid2</p>
+              </h6>
+            
+              <div class="blank"></div>
+              <img class="userphoto2" onclick="savecard(this)" src="assets/save.png" alt="" />
+            </div>
+          </div>
+          <div class="tilecontent">
+            <br />
+            <h2 class="tiletitle" style="font-size: 20px">.</h2>
+            <p style="font-size:16px;font-weight:600">Disease Class:-&nbsp<p class="tilelink1">.</p> </p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">PID:-&nbsp<p class="tilelink2">.</p> </p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">Year:-&nbsp<p class="tilelink3">.</p> </p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">Lackasso:-&nbsp<p class="tilelink4">.</p> </p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#" class="tilelink6">Click Here</a></p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">ENSEMBL:-&nbsp<a href="#" class="tilelink9">Click Here</a></p>
+            <br/>
+            <p style="font-size:16px;font-weight:600">GO:-&nbsp<a href="#"class="tilelink7">Ontology</a>&nbsp|&nbsp<a href="#"class="tilelink8">Gene Products</a></p>
+            <br/>
+            
+            <p style="font-size:16px;font-weight:600">Conclusion:-&nbsp<p class="tilelink5">..</p> </p>
+            <br/>
+            <div class="contentendspacer"></div>
+          </div>
+        </div>
+
+        
+      </div>
+
+        <!-- 
+        <div class="three columns tile" >
+          <div class="tileheader " >
+            <div class="userphotobox">
+              <img class="userphoto" src="assets/momtadp.jpg" alt="">
+              <div class="blank"></div>
+              <h6>creator: <p><a href="">eyecantsweem</a></p></h6>
+            <br>
+            <h6>tile<p>#LMFAO</p></h6>
+            </div>
+          </div>
+          <div class="tilecontent">
+            <br>
+            <h2>Best Graphics Designing tools.</h2>
+            <ol>
+            <li>Photoshop</li>
+            <li>Canva</li>
+            <li>Illustrator</li>
+            <li>Procreate (iPads)</li>
+            <li>GIMP</li>
+          </ol>
+            <div class="contentendspacer"></div>
+        </div>
+      </div>
+
+
+        <div class="one columns">&nbsp</div>
+        
+        <div class="three columns tile" >
+          <div class="tileheader " >
+            <div class="userphotobox">
+              <img class="userphoto" src="assets/rahuldp.jpg" alt="" >
+              <div class="blank"></div>
+              <h6>creator: <p><a href="">cuteboypappu</a></p></h6>
+            <br>
+            <h6>tile<p>#LMFAO</p></h6>
+            </div>
+          </div>
+          <div class="tilecontent">
+            <br>
+            <h2>Best Video Editing tools.</h2>
+            <ol>
+            <li>Premiere Pro</li>
+            <li>DaVinci Resolve</li>
+            <li>After Effects</li>
+            <li>Final Cut Pro X (macOS)</li>
+            <li>CyberLink PowerDirector</li>
+          </ol>
+            <div class="contentendspacer"></div>
+        </div>
+      </div> -->
+      </div>
+
+      <div class="testdepth"></div>
+    </div>
+
+    <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+   
 
     <!-- fire base additon over-------------------------------------------------->
   </body>

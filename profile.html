@@ -54,6 +54,8 @@
 
 </head>
 <body>
+  <button id="okok">TEST</button>
+
   <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <div class="gohomeback" id="homenotloggedin">
@@ -156,7 +158,7 @@
 
       <div id="profilemore" class="logoutform" style="display: none;"  style="display: none;">
         <button type="text" class="submit" id="updateprofilebtn">UPDATE PROFILE</button>
-        <button type="text" class="submit" onclick="gotoCreateTile()">CREATE TILE</button>
+        <!-- <button type="text" class="submit" onclick="gotoCreateTile()">CREATE TILE</button> -->
         <button type="text" class="submit" id="logoutSubmit">LOGOUT</button>
         <button type="text" class="submit" id="backtoProfileBtn">BACK</button>
 
@@ -202,56 +204,60 @@
         <div class="favsheading">Saved Tiles.</div>
         
           <div class="favscroll">
-            <div class="five columns tile card " id="cardtemplate" style="display: block;">
-              <div class="tileheader " >
-                <div class="userphotobox">
-                  <img class="userphoto" src="assets/modidp.jpeg" alt="">
-                  <div class="blank"></div>
-                  <h6>creator: <p> <a href="" class="creatorname">d_d.here</a></p></h6>
-                <br>
-                <h6>tile<p class="tilehash">#LMFAO</p></h6>
-                </div>
-              </div>
-              <div class="tilecontent">
-                <br>
-                <h2 class="tiletitle">Best SEO tools.</h2>
-                <ol>
-                <li class="tilelink1">Growth Bar</li>
-                <li class="tilelink2">SEMRush</li>
-                <li class="tilelink3">Ahrefs</li>
-                <li class="tilelink4">Advanced Web Ranking</li>
-                <li class="tilelink5">Sitechecker</li>
-              </ol>
-                <div class="contentendspacer"></div>
-            </div>
-          </div>
 
-          <div class="one columns burger" id="cardspacer">&nbsp</div>
-
-          <div class="five columns tile card " id="cardtemplate" style="display: block;">
-            <div class="tileheader " >
-              <div class="userphotobox">
-                <img class="userphoto" src="assets/modidp.jpeg" alt="">
+          <div
+          class="seven columns tile card"
+          id="cardtemplate"
+          style="display: display"
+        >
+          <div class="cardhaibc" id="cardhaibc">
+            <div class="tileheader" >
+              <div class="userphotobox" >
+                <img class="userphoto" src="assets/modidp.png" alt="" />
+                
+                
                 <div class="blank"></div>
-                <h6>creator: <p> <a href="" class="creatorname">d_d.here</a></p></h6>
-              <br>
-              <h6>tile<p class="tilehash">#LMFAO</p></h6>
+
+                <h6>
+                  gene:-&nbsp
+                  <p class="creatorname">CDH10</p>
+                </h6>
+                <br />
+                <h6>
+                  tileid:-&nbsp#
+                  <p class="tilehash">#dbid1</p>
+                </h6>
+              
+                <div class="blank"></div>
+                <img class="userphoto2" onclick="savecard(this)" src="assets/save.png" alt="" />
               </div>
             </div>
             <div class="tilecontent">
-              <br>
-              <h2 class="tiletitle">Best SEO tools.</h2>
-              <ol>
-              <li class="tilelink1">Growth Bar</li>
-              <li class="tilelink2">SEMRush</li>
-              <li class="tilelink3">Ahrefs</li>
-              <li class="tilelink4">Advanced Web Ranking</li>
-              <li class="tilelink5">Sitechecker</li>
-            </ol>
+              <br />
+              <h2 class="tiletitle" style="font-size: 20px">.</h2>
+              <p style="font-size:16px;font-weight:600">Disease Class:-&nbsp<p class="tilelink1">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">PID:-&nbsp<p class="tilelink2">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">Year:-&nbsp<p class="tilelink3">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">Lackasso:-&nbsp<p class="tilelink4">.</p> </p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">NCBI:-&nbsp<a href="#" class="tilelink6">Click Here</a></p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">ENSEMBL:-&nbsp<a href="#" class="tilelink9">Click Here</a></p>
+              <br/>
+              <p style="font-size:16px;font-weight:600">GO:-&nbsp<a href="#"class="tilelink7">Ontology</a>&nbsp|&nbsp<a href="#"class="tilelink8">Gene Products</a></p>
+              <br/>
+              
+              <p style="font-size:16px;font-weight:600">Conclusion:-&nbsp<p class="tilelink5">..</p> </p>
+              <br/>
               <div class="contentendspacer"></div>
+            </div>
           </div>
+
+          
         </div>
-        
           </div>
 
       </div>
@@ -319,6 +325,126 @@ var profilemore = document.getElementById("profilemore");
 var updateprofile = document.getElementById("updateprofile");
 var changeusernameform = document.getElementById("changeusernameform");
 var changephotoform = document.getElementById("changephotoform");
+
+
+
+
+      var okok = document.getElementById("okok")
+      okok.addEventListener('click', searchFavs);
+      var favArr=[0,1,2,3,4,5,6,7,8,9];
+      console.log(favArr);
+      function searchFavs() {
+        var counter = 0;
+        favArr = [];
+        const dbref = ref(db);
+        var tempcurrentuser = auth.currentUser;
+        var tempcurrentuserid = tempcurrentuser.uid;
+        console.log(tempcurrentuserid);
+        //for (let i = 0; i < 100; i++) {
+          get(child(dbref, "userfavs/" + tempcurrentuserid)).then((snapshot) => {
+            if (snapshot.exists()) {
+              
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                favArr[counter]=item;
+                counter = counter + 1;
+              });
+            } else {
+              console.log("No data available");
+            }
+          });
+          console.log(favArr);
+        //}
+      } 
+
+      function cloneCard() {
+        var template = document.getElementById("cardtemplate");
+        var template2 = document.getElementById("cardspacer");
+        template.style.display = "block";
+        template2.style.display = "block";
+        var newClone = $("#cardtemplate").clone();
+        var newSpacer = $("#cardspacer").clone();
+        template.style.display = "none";
+        template2.style.display = "none";
+
+        var tempid = "card" + (cardcount + 1);
+        newClone.find("#cardhaibc").attr("id", tempid);
+
+        if (cardcount % 3 == 1) {
+          newSpacer.appendTo("#cardholder");
+          newClone.appendTo("#cardholder");
+        }
+        if (cardcount % 3 == 2) {
+          newSpacer.appendTo("#cardholder");
+          newClone.appendTo("#cardholder");
+        }
+        if (cardcount % 3 == 0) {
+          newClone.appendTo("#cardholder");
+        }
+        cardcount++;
+        console.log(cardcount);
+        return tempid;
+      }
+
+      function generateCards(...args) {
+        console.log("generateCards function is called here");
+        // 0 = conclusion
+        // 1 = column1
+        // 2 = dbid
+        // 3 = disclass
+        // 4 = gene
+        // 5 = lackasso
+        // 6 = pid
+        // 7 = title
+        // 8 = years
+
+        var cardid;
+
+        console.log("this is search resealt array"+searchResultArr)
+        searchResultArr.forEach(function (element) {
+          cardid = cloneCard();
+          var card = document.getElementById(cardid);
+          var title = card.getElementsByClassName("tiletitle")[0];
+          var tilelink1 = card.getElementsByClassName("tilelink1")[0];
+          var tilelink2 = card.getElementsByClassName("tilelink2")[0];
+          var tilelink3 = card.getElementsByClassName("tilelink3")[0];
+          var tilelink4 = card.getElementsByClassName("tilelink4")[0];
+          var tilelink5 = card.getElementsByClassName("tilelink5")[0];
+          var tilelink6 = card.getElementsByClassName("tilelink6")[0];
+          var tilelink7 = card.getElementsByClassName("tilelink7")[0];
+          var tilelink8 = card.getElementsByClassName("tilelink8")[0];
+          var tilelink9 = card.getElementsByClassName("tilelink9")[0];
+          var tileid = card.getElementsByClassName("tilehash")[0];
+          var gene = card.getElementsByClassName("creatorname")[0];
+          var temp = "maindata/";
+          temp = temp.concat(element);
+          const dbref = ref(db);
+          get(child(dbref, temp)).then((snapshot) => {
+            console.log("ret from fb")
+            console.log(snapshot.val())
+            tileid.innerText = snapshot.val().DB_ID;
+            gene.innerText = snapshot.val().GENE;
+            title.innerText = snapshot.val().TITLE;
+            tilelink1.innerText = snapshot.val().DIS_CLASS;
+            tilelink2.innerText = snapshot.val().PUBMED_ID;
+            tilelink3.innerText = snapshot.val().YEAR;
+            tilelink4.innerText = snapshot.val().LACKASSO;
+            tilelink5.innerText = snapshot.val().CONCLUSION;
+            var tempncbiterm = snapshot.val().GENE;
+            var tempncbilink = "https://www.ncbi.nlm.nih.gov/gene/?term=" + tempncbiterm
+            console.log(tempncbilink);
+            tilelink6.href = tempncbilink;
+            var tempncbilink = "http://amigo.geneontology.org/amigo/search/ontology?q=" + tempncbiterm
+            tilelink7.href = tempncbilink;
+            var tempncbilink = "http://amigo.geneontology.org/amigo/search/bioentity?q=" + tempncbiterm
+            tilelink8.href = tempncbilink;
+            var tempncbilink = "http://asia.ensembl.org/Multi/Search/Results?q=" + tempncbiterm + ";site=ensembl"
+            tilelink9.href = tempncbilink;
+          
+          });
+        });
+      }
+
 
 window.onload = pageLoad;
 function pageLoad(){
