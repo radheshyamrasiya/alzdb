@@ -31,7 +31,11 @@
     border-radius: 999px;
     border: 2px solid #37AE47;
   }
-
+  .favscroll {
+    height: 375px;
+    overflow: scroll;
+    border-radius: 10px;
+  }
 
 
   .teamname:hover{
@@ -45,3 +49,31 @@
     color: #37AE47;
     border: 2px solid #eee;
   }
+  @media (max-width: 550px) {
+    .blank {
+        height:40px;
+    }
+    .favscroll {
+      height: 375px;
+      overflow: scroll;
+      border-radius: 10px;
+    }
+     #eeesearchbar {
+        width: 100%;
+        border: 2px solid #eee;
+        border-radius: 999px;
+        height: 60px;
+        margin-top: 20px;
+    }   
+    input {
+        color: #eee;
+        background-color:black;
+        font-family: inherit;
+        border: none;
+        font-size: 18px;
+        display: inline-block;
+        vertical-align: middle;
+        padding-left: 10px;
+    }
+
+}

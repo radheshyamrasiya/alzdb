@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Only Links</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;900&display=swap" rel="stylesheet">
+ 
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/skeleton.css">
+    <link rel="stylesheet" href="alldb.css">
+    <link rel="stylesheet" href="tile.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+    <script >
+      
+      function homePage(){
+          window.open("index.html", "_self");
+          console.log("switching to home page");
+      }
+
+      function gotoCreateTile() {
+        window.open("createtile.html", "_self");
+          console.log("switching to create tile page");
+      }
+      let file = {};
+      function chooseFile(e){
+        console.log("choosefileworking")
+              file = e.target.files[0];
+            }
+      
+          </script>
+
+</head>
+<body>
+
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="gohomeback" id="homenotloggedin">
+    <button class="gohome" onclick="homePage()">&#8592 GO BACK</button>
+    </div>
+    <div class="row ">
+      <div class="blank"></div>
+      
+      <div class="twelve columns">
+        <img class="mainlogo"src="assets/logo-w.png" alt="">
+      </div>
+
+    </div>
+  <div class="container extra"> 
+    
+    <div class="ten columns" >
+      
+      <div class="twelve columns favsection" id="favsection" style="display: block;">
+        <div class="favsheading">All Genes.</div>
+        <button type="text" class="submit2" id="okok">LOAD</button>
+        
+          <div class="favscroll">
+               <table id="myfavtable">
+              <tr>
+                <td>GENE</td>
+                <td>PID</td>
+                <td>NCBI</td>
+                <td>ENSEMBL</td>
+                <td>ONTOLOGY</td>
+                <td>GENEPRODUCTS</td>
+
+              </tr>
+            </table>
+            <div id="favkeeper"></div>
+         
+
+          </div>
+
+      </div>
+   
+    
+    </div>
+   
+
+<!-- End Document––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+
+<script src="linkScript.js"></script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+import { getDatabase,get, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+import { getStorage, uploadBytes} from "https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAzhLY6fU0Vss7XcOnUey_-Pqh88xJEvjw",
+  authDomain: "alzdb-fafcd.firebaseapp.com",
+  databaseURL: "https://alzdb-fafcd-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "alzdb-fafcd",
+  storageBucket: "alzdb-fafcd.appspot.com",
+  messagingSenderId: "252793865531",
+  appId: "1:252793865531:web:93de525d5b423bc818231e",
+  measurementId: "G-CVRQ5P78RW"
+};
+
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const db= getDatabase(app);
+const auth = getAuth();
+      var searchResultArr = [];
+      var tempArr = [];
+
+
+      var okok = document.getElementById("okok")
+      okok.addEventListener('click', searchDataAll);
+      function searchDataAll() {
+       
+        searchResultArr = [];
+        const dbref = ref(db);
+        for (let i = 0; i < 400; i++) {
+          tempArr = [];
+          get(child(dbref, "maindata/" + i)).then((snapshot) => {
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                tempArr.push(item);
+              });
+              // console.log("checking array :-" + i);
+              if (true) {
+                console.log("entry found at"+i);
+                searchResultArr.push(i);
+                console.log(tempArr)
+                generatefavtable.apply(this, tempArr);
+                searchResultArr.pop();
+              }
+              tempArr.length = 0;
+            } else {
+              console.log("No data available");
+            }
+          });
+        }
+      }
+      // var searchResultArr = [];
+      var tableCounter = 1;
+      // function searchDatafavs(favid) {
+      //   // if (cardcount != 0) {
+      //   //   $("#cardholder").load(document.URL + "  #cardholder");
+      //   // }
+      //   // cardcount = 0;
+      //   var tempArr = [];
+        
+      //   var temp = favid;
+      //   console.log("Seaching:- " + temp);
+      //   console.log("Seaching data now");
+      //   searchResultArr = [];
+      //   const dbref = ref(db);
+      //   var counter = 0;
+      //   for (let i = 0; i < 400; i++) {
+      //     tempArr = [];
+      //     get(child(dbref, "maindata/" + i)).then((snapshot) => {
+      //       if (snapshot.exists()) {
+      //         snapshot.forEach(function (childSnapshot) {
+      //           const item = childSnapshot.val();
+      //           tempArr.push(item);
+      //         });
+      //         // console.log("checking array :-" + i);
+      //         if (tempArr[2] == temp) {
+      //           console.log("entry found at"+i);
+      //           searchResultArr.push(i);
+      //           console.log(tempArr)
+      //           //generate_table.apply(this,tempArr);
+      //           generatefavtable.apply(this, tempArr);
+                
+      //           searchResultArr.pop();
+      //         }
+      //         tempArr.length = 0;
+      //       } else {
+      //         console.log("No data available");
+      //       }
+      //     })        ;
+      //     counter = counter + 1;
+      //   }
+      // } 
+
+      // function generate_table(...args) {
+      //   // 0 = conclusion
+      //   // 1 = column1
+      //   // 2 = dbid
+      //   // 3 = disclass
+      //   // 4 = gene
+      //   // 5 = lackasso
+      //   // 6 = pid
+      //   // 7 = title
+      //   // 8 = years
+      //     // get the reference for the body
+      //     var body = document.getElementById("favkeeper");
+
+      //     // creates a <table> element and a <tbody> element
+      //     var tbl = document.createElement("table");
+      //     var tblBody = document.createElement("tbody");
+
+      //     // creating all cells
+      //     for (var i = 0; i < 2; i++) {
+      //       // creates a table row
+      //       var row = document.createElement("tr");
+
+      //       for (var j = 0; j < 7; j++) {
+      //         // Create a <td> element and a text node, make the text
+      //         // node the contents of the <td>, and put the <td> at
+      //         // the end of the table row
+      //         var cell = document.createElement("td");
+      //         var cellText = document.createTextNode(args[1]);
+      //         cell.appendChild(cellText);
+      //         row.appendChild(cell);
+      //       }
+
+      //       // add the row to the end of the table body
+      //       tblBody.appendChild(row);
+      //     }
+
+      //     // put the <tbody> in the <table>
+      //     tbl.appendChild(tblBody);
+      //     // appends <table> into <body>
+      //     body.appendChild(tbl);
+      //     // sets the border attribute of tbl to 2;
+      //     tbl.setAttribute("border", "2");
+      //   }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      
+
+        var mytable = document.getElementById("myfavtable") 
+        function generatefavtable(...args) {
+        console.log("generateCards function is called here");
+        // 0 = conclusion
+        // 1 = column1
+        // 2 = dbid
+        // 3 = disclass
+        // 4 = gene
+        // 5 = lackasso
+        // 6 = pid
+        // 7 = title
+        // 8 = years
+
+        // var cardid;
+
+          // creates a table row
+          var row = document.createElement("tr");
+
+          for (var j = 0; j < 6; j++) {
+            // Create a <td> element and a text node, make the text
+            // node the contents of the <td>, and put the <td> at
+            // the end of the table row
+            var cell = document.createElement("td");
+            var cellText = document.createTextNode(j);
+            cell.appendChild(cellText);
+            row.appendChild(cell);
+          }
+
+          // add the row to the end of the table body
+          mytable.appendChild(row);
+
+        // console.log("this is search resealt array"+searchResultArr)
+        searchResultArr.forEach(function (element) {
+          // cardid = cloneCard();
+          // var card = document.getElementById(cardid);
+          // var title = card.getElementsByClassName("tiletitle")[0];
+          // var tilelink1 = card.getElementsByClassName("tilelink1")[0];
+          // var tilelink2 = card.getElementsByClassName("tilelink2")[0];
+          // var tilelink3 = card.getElementsByClassName("tilelink3")[0];
+          // var tilelink4 = card.getElementsByClassName("tilelink4")[0];
+          // var tilelink5 = card.getElementsByClassName("tilelink5")[0];
+          // var tilelink6 = card.getElementsByClassName("tilelink6")[0];
+          // var tilelink7 = card.getElementsByClassName("tilelink7")[0];
+          // var tilelink8 = card.getElementsByClassName("tilelink8")[0];
+          // var tilelink9 = card.getElementsByClassName("tilelink9")[0];
+          // var tileid = card.getElementsByClassName("tilehash")[0];
+          // var gene = card.getElementsByClassName("creatorname")[0];
+
+          var temp = "maindata/";
+          temp = temp.concat(element);
+          const dbref = ref(db);
+          get(child(dbref, temp)).then((snapshot) => {
+            console.log("table="+tableCounter);
+            console.log("ret from fb")
+            console.log(snapshot.val())
+            console.log("angoooooooor="+snapshot.val().DB_ID);
+            console.log("angoooooooor="+snapshot.val().GENE);
+            mytable.rows[tableCounter].cells[0].innerHTML = snapshot.val().GENE;
+            mytable.rows[tableCounter].cells[1].innerHTML = snapshot.val().PUBMED_ID;
+            var tempncbiterm = snapshot.val().GENE;
+            var tempncbilink = "https://www.ncbi.nlm.nih.gov/gene/?term=" + tempncbiterm
+
+            mytable.rows[tableCounter].cells[2].innerHTML ='<a href="'+tempncbilink+'">Clickhere</a>'
+            tempncbilink = "http://asia.ensembl.org/Multi/Search/Results?q=" + tempncbiterm + ";site=ensembl"
+            mytable.rows[tableCounter].cells[3].innerHTML = '<a href="'+tempncbilink+'">Clickhere</a>'
+            tempncbilink = "http://amigo.geneontology.org/amigo/search/ontology?q=" + tempncbiterm
+            mytable.rows[tableCounter].cells[4].innerHTML = '<a href="'+tempncbilink+'">Clickhere</a>'
+            var tempncbilink = "http://amigo.geneontology.org/amigo/search/bioentity?q=" + tempncbiterm
+            mytable.rows[tableCounter].cells[5].innerHTML = '<a href="'+tempncbilink+'">Clickhere</a>'
+
+            mytable.rows[tableCounter].cells[5].innerHTML = '<a href="'+tempncbilink+'">Clickhere</a>'
+            // title.innerText = snapshot.val().TITLE;
+            // tilelink1.innerText = snapshot.val().DIS_CLASS;
+            // tilelink2.innerText = snapshot.val().PUBMED_ID;
+            // tilelink3.innerText = snapshot.val().YEAR;
+            // tilelink4.innerText = snapshot.val().LACKASSO;
+            // tilelink5.innerText = snapshot.val().CONCLUSION;
+            // var tempncbiterm = snapshot.val().GENE;
+            // var tempncbilink = "https://www.ncbi.nlm.nih.gov/gene/?term=" + tempncbiterm
+            // console.log(tempncbilink);
+            // tilelink6.href = tempncbilink;
+            // var tempncbilink = "http://amigo.geneontology.org/amigo/search/ontology?q=" + tempncbiterm
+            // tilelink7.href = tempncbilink;
+            // var tempncbilink = "http://amigo.geneontology.org/amigo/search/bioentity?q=" + tempncbiterm
+            // tilelink8.href = tempncbilink;
+            // var tempncbilink = "http://asia.ensembl.org/Multi/Search/Results?q=" + tempncbiterm + ";site=ensembl"
+            // tilelink9.href = tempncbilink;
+
+          
+          }).then((onResolved) =>{tableCounter = tableCounter + 1;});
+          
+        });
+      }
+
+
+
+</script>
+
+<script>
+  function createcard(){
+      
+      if (cardcount%3==1){
+
+        if (cardcount!=1){
+          $('#cardspacer').clone().appendTo('#cardholder');
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+        else {
+          $('#cardtemplate').clone().appendTo('#cardholder');
+        }
+      
+    }
+    if (cardcount%3==2){
+      $('#cardspacer').clone().appendTo('#cardholder');
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    if (cardcount%3==0){
+      $('#cardtemplate').clone().appendTo('#cardholder');
+    }
+    cardcount++;
+    console.log(cardcount)
+    }
+</script>
+
+
+</body>
+</html>

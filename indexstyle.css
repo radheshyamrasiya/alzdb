@@ -246,6 +246,15 @@ input[type=text]:focus {
         .blank {
             height:40px;
         }
+
+        .dropdown .dropbtn {
+            border: none;
+            outline: none;
+            color: white;
+           
+            margin: 0; /* Important for vertical align on mobile phones */
+          }
+
         .whitesearchbar {
             width: 100%;
             border: 2px solid white;
