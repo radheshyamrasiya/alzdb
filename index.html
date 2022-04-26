@@ -239,16 +239,9 @@
       favyes.addEventListener('click', savealldata);
       function savealldata() {
         var tempfavsetter = [];
-        console.log("continue to save called")
-
-        var sessioncounter = sessionStorage.getItem("sessioncounter");
-        console.log("session counter value ret inside module is = "+sessioncounter);
-        var temp = parseInt(sessioncounter)+1;
-        console.log("temp is-"+temp)
-        for (let i=0 ; i<temp; i++){
-            console.log("i="+i)
-            console.log(sessionStorage.getItem(i));
-            var tempcurrentfavid = sessionStorage.getItem(i);
+        console.log("continue to save called");
+            console.log(sessionStorage.getItem(0));
+            var tempcurrentfavid = sessionStorage.getItem(0);
             var tempcurrentuser = auth.currentUser;
             console.log(tempcurrentuser.uid);
             var tempcurrentuserid = tempcurrentuser.uid
@@ -277,8 +270,7 @@
             //   fav: sessionStorage.getItem(i)
             // });
 
-        
-        } 
+              
 
       }
 
@@ -302,6 +294,8 @@
               snapshot.forEach(function (childSnapshot) {
                 const item = childSnapshot.val();
                 favArr[counter]=item;
+                console.log(item[0]);
+                searchDatafavs(item[0])
                 counter = counter + 1;
               });
             } else {
@@ -310,6 +304,42 @@
           });
           console.log(favArr);
         //}
+      } 
+
+      function searchDatafavs(favid) {
+        // if (cardcount != 0) {
+        //   $("#cardholder").load(document.URL + "  #cardholder");
+        // }
+        // cardcount = 0;
+        var temp = favid;
+        console.log("Seaching:- " + temp);
+        console.log("Seaching data now");
+        searchResultArr = [];
+        const dbref = ref(db);
+        var counter = 0;
+        for (let i = 0; i < 400; i++) {
+          tempArr = [];
+          get(child(dbref, "maindata/" + i)).then((snapshot) => {
+            if (snapshot.exists()) {
+              snapshot.forEach(function (childSnapshot) {
+                const item = childSnapshot.val();
+                tempArr.push(item);
+              });
+              // console.log("checking array :-" + i);
+              if (tempArr[2] == temp) {
+                console.log("entry found at"+i);
+                searchResultArr.push(i);
+                console.log(tempArr)
+                generateCards.apply(this, tempArr);
+                searchResultArr.pop();
+              }
+              tempArr.length = 0;
+            } else {
+              console.log("No data available");
+            }
+          })        ;
+          counter = counter + 1;
+        }
       } 
 
 
@@ -476,13 +506,13 @@
 
   </head>
   <body>
-    <button id="okok">TEST</button>
+    <button id="okok" style="display: none">TEST</button>
     <!-- Primary Page Layout
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <!-- <div >
     <button  id="testbutton">TESTBUTTON</button>
   </div> -->
-    <div class="homescreenlogin">
+    <!-- <div class="homescreenlogin">
       <button
         class="login"
         onclick="profilePage()"
@@ -491,6 +521,20 @@
       >
         Login | SignUp
       </button>
+    </div> -->
+
+    <div class="dropdown" >
+      <button class="dropbtn"
+      onclick="showoption()"
+      >MORE
+      </button>
+      <div class="dropdown-content" id="options">
+        <a href="/profile.html" id="profile">PROFILE</a>
+        <a href="#">ALL DB</a>
+        <a href="mmse.html">MMSE</a>
+        <a href="About.html">ABOUT</a>
+
+      </div>
     </div>
 
     <!-- <div class="contsavearea">

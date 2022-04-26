@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Only Links</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;900&display=swap"
+    rel="stylesheet">
+
+  <!-- CSS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <!-- <link rel="stylesheet" href="profile.css"> -->
+  <link rel="stylesheet" href="tile.css">
+  <link rel="stylesheet" href="mccr.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <!-- JS
+    –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <script>
+
+    function homePage() {
+      window.open("index.html", "_self");
+      console.log("switching to home page");
+    }
+
+    function gotoCreateTile() {
+      window.open("createtile.html", "_self");
+      console.log("switching to create tile page");
+    }
+    let file = {};
+    function chooseFile(e) {
+      console.log("choosefileworking")
+      file = e.target.files[0];
+    }
+
+  </script>
+
+  <script src="./chart.js"></script>
+
+
+</head>
+
+<body>
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="gohomeback" id="homenotloggedin">
+    <button class="gohome" onclick="homePage()">&#8592 GO BACK</button>
+  </div>
+  <div class="container ">
+    <div class="row ">
+      <div class="blank"></div>
+
+      <div class="twelve columns">
+        <img class="mainlogo" src="assets/logo-w.png" alt="">
+      </div>
+
+    </div>
+
+
+    <div class="twelve columns ">
+      <div class="four columns ">
+        <div class="logoutform centertext" id="logoutform" style="display: block;">
+          <div class="title" style="font-size: 30px">MMSE WITH AGE DISTRIBUTION</div>
+
+          <a href="https://www.researchgate.net/figure/Differences-in-age-sex-years-of-education-and-MMsE-scores-among-the-NC-aMCI-and-AD_tbl1_335044930">Reference-1</a>&nbsp&nbsp&nbsp&nbsp
+          <a href="https://www.researchgate.net/figure/ORs-for-cognitive-impairment-MMSE-score-24-according-to-levels-of-BMI-stratified-by_tbl2_306068229">Reference-2</a>
+
+          <button type="text" class="submit" id="overallBtn">62-70 years</button>
+          <button type="text" class="submit" id="fiftyBtn">65-73 years</button>
+          <button type="text" class="submit" id="sixfiveBtn">70-78 years</button>
+
+        </div>
+
+
+        <!-- 
+      <div id="profilemore" class="logoutform" style="display: none;"  style="display: none;">
+        <button type="text" class="submit" id="updateprofilebtn">UPDATE PROFILE</button>
+        <button type="text" class="submit" onclick="gotoCreateTile()">CREATE TILE</button>
+        <button type="text" class="submit" id="logoutSubmit">LOGOUT</button>
+        <button type="text" class="submit" id="backtoProfileBtn">BACK</button>
+
+      </div> -->
+
+        <div class="logoutform centertext" id="updateprofile" style="display: none;">
+          <div class="title">Update Things.</div>
+
+          <div class="photochangediv">
+            <img class="userphotobigchange" src="assets/modidp.jpeg" alt="">
+            <button class="userphotochangebtn" id="changePhotoBtn">change</button>
+          </div>
+
+          <div class="subtitle">username: <div id="username2" style="display:inline-block;">ddhereusername</div>
+          </div>
+          <button class="usernamechangebtn" id="changeUsernameBtn">change</button>
+          <button type="text" class="submit" id="backToMoreBtn">BACK</button>
+        </div>
+
+
+
+
+        <!-- inthebox -->
+
+      </div>
+
+      <div class="eight columns favsection" id="favsection" style="display: block;">
+        <div class="chartspacer">
+          <canvas id="myChart" style="width:100%;max-width:800px"></canvas>
+
+        </div>
+      </div>
+    </div>
+
+
+    <!-- End Document––––––––––––––––––––––––––––––––––––––––––––––––––-->
+
+
+    <script src="linkScript.js"></script>
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-app.js";
+      import { getDatabase, get, ref, set, child, update, remove } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-database.js";
+      import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-auth.js";
+      import { getStorage, uploadBytes } from "https://www.gstatic.com/firebasejs/9.5.0/firebase-storage.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyAzhLY6fU0Vss7XcOnUey_-Pqh88xJEvjw",
+        authDomain: "alzdb-fafcd.firebaseapp.com",
+        databaseURL:
+          "https://alzdb-fafcd-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "alzdb-fafcd",
+        storageBucket: "alzdb-fafcd.appspot.com",
+        messagingSenderId: "252793865531",
+        appId: "1:252793865531:web:93de525d5b423bc818231e",
+        measurementId: "G-CVRQ5P78RW",
+      };
+      
+      // var xValues = ["WELCOME", "TO", "ALZDB", "MMSE", "CHART"];
+      // var yValues = [20,20,20,20,20];
+      // var barColors = [
+      //   "#123524",
+      //   "#7CFC00",
+      //   "#005C29",
+      //   "#AFCB7A",
+      //   "#138808",
+      //   "#299617",
+      //   "#004225",
+      //   "#98FF98",
+      //   "#355E3B",
+      //   "#D0F0C0"
+      // ];
+
+      // new Chart("myChart", {
+      //   type: "doughnut",
+      //   data: {
+      //     labels: xValues,
+      //     datasets: [{
+      //       backgroundColor: barColors,
+      //       data: yValues
+      //     }]
+      //   },
+      //   options: {
+      //     title: {
+      //       display: true,
+      //       text: "CHART ABOUT MMSE DISTRIBUTION IN DIFFERENT AGE GROUPS"
+      //     }
+      //   }
+      // });
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getDatabase(app);
+      const auth = getAuth();
+
+      var currentUser;
+      var currentUserUsername;
+      var currentUserId;
+
+
+
+      var overallBtn = document.getElementById("overallBtn");
+      var fiftyBtn = document.getElementById("fiftyBtn");
+      var sixfiveBtn = document.getElementById("sixfiveBtn");
+      overallBtn.addEventListener("click", mmseoverall);
+
+      fiftyBtn.addEventListener("click", mmsefifty);
+      sixfiveBtn.addEventListener("click", mmsesixfive);
+
+      function mmsefifty() {
+        
+
+        console.log("fifty")
+        console.log("running overall")
+        const dbref = ref(db);
+          // tempArr = [];
+
+          // get(child(dbref, "mmsedata/" )).then((snapshot) => {
+          //   if (snapshot.exists()) {
+          //     snapshot.forEach(function (childSnapshot) {
+          //       const item = childSnapshot.val();
+          //       console.log(item)
+          //       // tempArr.push(item[i]);
+          //     });
+
+
+              
+          //   }
+          //   else {
+          //     console.log("No data available");
+          //   }
+          // });
+              var xValues = ["21", "23", "25", "27", "29","31"];
+              var yValues = [1,     3,   9,    16,   9,    3];
+                
+              var barColors = [
+                "#123524",
+                "#7CFC00",
+                "#005C29",
+                "#AFCB7A",
+                "#138808",
+                "#299617",
+                "#004225",
+                "#98FF98",
+                "#355E3B",
+                "#D0F0C0"
+              ];
+
+              new Chart("myChart", {
+                type: "doughnut",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: "CHART ABOUT MMSE DISTRIBUTION IN DIFFERENT AGE GROUPS"
+                  }
+                }
+              });
+      }
+      function mmsesixfive() {
+        console.log("mmsesixfive")
+        console.log("running overall")
+        const dbref = ref(db);
+          // tempArr = [];
+
+          // get(child(dbref, "mmsedata/" )).then((snapshot) => {
+          //   if (snapshot.exists()) {
+          //     snapshot.forEach(function (childSnapshot) {
+          //       const item = childSnapshot.val();
+          //       console.log(item)
+          //       // tempArr.push(item[i]);
+          //     });
+
+
+              
+          //   }
+          //   else {
+          //     console.log("No data available");
+          //   }
+          // });
+               var xValues = ["21", "23", "25", "27", "29","31"];
+              var yValues = [18,     9,  5,    5,   3,    1,];
+                
+              var barColors = [
+                "#123524",
+                "#7CFC00",
+                "#005C29",
+                "#AFCB7A",
+                "#138808",
+                "#299617",
+                "#004225",
+                "#98FF98",
+                "#355E3B",
+                "#D0F0C0"
+              ];
+
+              new Chart("myChart", {
+                type: "doughnut",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: "CHART ABOUT MMSE DISTRIBUTION IN DIFFERENT AGE GROUPS"
+                  }
+                }
+              });
+      }
+
+      var overalllegend = [];
+      var overalldata = [];
+
+      var tempArr = [];
+      function mmseoverall() {
+        console.log("running overall")
+        const dbref = ref(db);
+          // tempArr = [];
+
+          // get(child(dbref, "mmsedata/" )).then((snapshot) => {
+          //   if (snapshot.exists()) {
+          //     snapshot.forEach(function (childSnapshot) {
+          //       const item = childSnapshot.val();
+          //       console.log(item)
+          //       // tempArr.push(item[i]);
+          //     });
+
+
+              
+          //   }
+          //   else {
+          //     console.log("No data available");
+          //   }
+          // });
+              var xValues = ["21", "23", "25", "27", "29","31"];
+              var yValues = [2,     3,   5,    6,   10,    16,];
+                
+              var barColors = [
+                "#123524",
+                "#7CFC00",
+                "#005C29",
+                "#AFCB7A",
+                "#138808",
+                "#299617",
+                "#004225",
+                "#98FF98",
+                "#355E3B",
+                "#D0F0C0"
+              ];
+
+              new Chart("myChart", {
+                type: "doughnut",
+                data: {
+                  labels: xValues,
+                  datasets: [{
+                    backgroundColor: barColors,
+                    data: yValues
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: "CHART ABOUT MMSE DISTRIBUTION IN DIFFERENT AGE GROUPS"
+                  }
+                }
+              });
+        
+      }
+
+    </script>
+
+</body>
+
+</html>
