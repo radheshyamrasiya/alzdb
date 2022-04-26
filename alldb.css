@@ -363,10 +363,6 @@ body::-webkit-scrollbar {
     border: 2px solid #fff;
     margin-top: 30px;
   }
-
-  .extra {
-    padding-left: 170px;
-  }
   .favscroll {
     height: 375px;
     overflow: auto;
