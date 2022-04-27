@@ -33,7 +33,7 @@
   }
   .favscroll {
     height: 375px;
-    overflow: scroll;
+    overflow: auto;
     border-radius: 10px;
   }
 
@@ -55,7 +55,7 @@
     }
     .favscroll {
       height: 375px;
-      overflow: scroll;
+      overflow: auto;
       border-radius: 10px;
     }
      #eeesearchbar {
