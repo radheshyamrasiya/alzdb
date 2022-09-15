@@ -37,7 +37,7 @@ body::-webkit-scrollbar {
     margin-right: auto;
 }
 .gohome {
-  background-color : #37AE47;
+  background-color : #FFCF00;
   color: white;
   border-radius: 999px;
   border: 2px solid white;
@@ -45,7 +45,7 @@ body::-webkit-scrollbar {
 }
 .gohome:hover{
   background-color : white;
-  color: #37AE47;
+  color: #FFCF00;
   border-radius: 999px;
   border: 2px solid white;
 }
@@ -125,12 +125,12 @@ body::-webkit-scrollbar {
     text-align: center;
     background-color : none;
     border-radius: 999px;
-    border: 2px solid #37AE47;
+    border: 2px solid #FFCF00;
   }
   .subtitle2btn:hover{
-    background-color : #37AE47;
+    background-color : #FFCF00;
     color: #eee;
-    border: 2px solid #37AE47;
+    border: 2px solid #FFCF00;
   }
   
   .subtitle2btn:active {
@@ -207,7 +207,7 @@ body::-webkit-scrollbar {
     color: #37AE47;
   }
   input[type=text]:focus {
-    border: 2px solid #37AE47;
+    border: 2px solid #FFCF00;
     ;
   }
   .userphotobig {
@@ -245,7 +245,7 @@ body::-webkit-scrollbar {
 
   .userphotochangebtn:hover{
     color: white;
-    border:2px solid  #37AE47;
+    border:2px solid  #FFCF00;
     border-radius : 999px;
 
   }
@@ -261,7 +261,7 @@ body::-webkit-scrollbar {
   .usernamechangebtn:hover{
     color: #eee;
     border:2px solid ;
-    border-color:  #37AE47;
+    border-color:  #FFCF00;
     
   }
   .centertext {
@@ -278,9 +278,9 @@ body::-webkit-scrollbar {
     outline: 0;
     text-align: center;
     width: 100%;
-    background-color : #37AE47;
+    background-color : #FFCF00;
     border-radius: 999px;
-    border: 2px solid #37AE47;
+    border: 2px solid #FFCF00;
   }
 
   .submit2 {
@@ -294,14 +294,14 @@ body::-webkit-scrollbar {
     outline: 0;
     text-align: center;
     width: 150px;
-    background-color : #37AE47;
+    background-color : #FFCF00;
     border-radius: 999px;
-    border: 2px solid #37AE47;
+    border: 2px solid #FFCF00;
     display: inline;
   }
 
   .submit:hover{
-    background-color : #37AE47;
+    background-color : #FFCF00;
     color: #eee;
     border: 3px solid #eee;
   }
@@ -316,7 +316,7 @@ body::-webkit-scrollbar {
   
 
   .userin {
-    background-color : #37AE47;
+    background-color : #FFCF00;
     color: white;
     border-radius: 999px;
     border: 2px solid white;
@@ -345,7 +345,7 @@ body::-webkit-scrollbar {
   }
    
   ::-webkit-scrollbar-thumb {
-    background: #37AE47;
+    background: #FFCF00;
     border-radius: 999px;
   }
   ::-webkit-scrollbar-thumb:hover {
